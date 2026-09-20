@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style><title>Цех на двоих</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#f4f6f7; --surface:#fcfcfb; --surface-2:#eceff1; --line:#d4dade; --line-strong:#b3bdc4;
+  --ink:#14191c; --ink-2:#414c53; --ink-3:#6b777e;
+  --accent:#1f6fb2; --accent-soft:#e3edf6;
+  --s1:#1f6fb2; --s2:#ba6500; --s3:#00907d; --s4:#7048c4; --s5:#bc3446;
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+  --good-ink:#0a7a0a; --crit-ink:#a82d2d; --warn-ink:#8a6207;
+  --grid:#e2e7ea;
+  --display:'Oswald',"Arial Narrow",sans-serif;
+  --body:'IBM Plex Sans',"Segoe UI",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,"Cascadia Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101315; --surface:#181c1f; --surface-2:#20262a; --line:#2d353a; --line-strong:#3e4950;
+    --ink:#e8edf0; --ink-2:#aeb9c0; --ink-3:#7f8c94;
+    --accent:#4090db; --accent-soft:#1a2b3b;
+    --s1:#4090db; --s2:#ce7a1c; --s3:#0fa688; --s4:#8e72e2; --s5:#dd5f6e;
+    --good-ink:#4cc94c; --crit-ink:#ef7272; --warn-ink:#e0aa2e;
+    --grid:#262e33;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101315; --surface:#181c1f; --surface-2:#20262a; --line:#2d353a; --line-strong:#3e4950;
+  --ink:#e8edf0; --ink-2:#aeb9c0; --ink-3:#7f8c94;
+  --accent:#4090db; --accent-soft:#1a2b3b;
+  --s1:#4090db; --s2:#ce7a1c; --s3:#0fa688; --s4:#8e72e2; --s5:#dd5f6e;
+  --good-ink:#4cc94c; --crit-ink:#ef7272; --warn-ink:#e0aa2e;
+  --grid:#262e33;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.55;margin:0;
+     font-size:15px;-webkit-text-size-adjust:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.14;text-wrap:balance;margin:0;
+  letter-spacing:.005em}
+h2{font-size:clamp(23px,3.6vw,31px);margin-block:0 14px}
+h3{font-size:clamp(17px,2.4vw,20px);margin-block:26px 10px;color:var(--ink)}
+h4{font-size:15px;font-family:var(--body);font-weight:600;margin-block:18px 6px}
+p{margin-block:0 12px;max-width:68ch}
+ul,ol{max-width:68ch;padding-left:20px;margin-block:0 12px}
+li{margin-block:0 5px}
+a{color:var(--accent)}
+strong{font-weight:600}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-block:0 8px}
+
+/* ---- header ---- */
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:34px 30px}
+h1{font-size:clamp(32px,6.4vw,54px);letter-spacing:-.005em}
+.sub{color:var(--ink-2);font-size:clamp(15px,2vw,17px);max-width:60ch;margin-block:12px 0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-block:20px 0;font-family:var(--mono);
+  font-size:11.5px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---- nav ---- */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);
+  border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:thin}
+.toc-in{display:flex;gap:2px;max-width:1180px;margin:0 auto;padding-inline:10px;white-space:nowrap}
+.toc a{display:inline-block;padding:11px 10px;font-size:12.5px;color:var(--ink-2);text-decoration:none;
+  border-bottom:2px solid transparent;font-weight:500}
+.toc a:hover{color:var(--ink);border-bottom-color:var(--line-strong)}
+.toc a.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+section{padding-block:40px 0;scroll-margin-top:64px}
+section+section{border-top:1px solid var(--line);margin-top:40px}
+
+/* ---- verdict ---- */
+.verdict{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--crit);
+  border-radius:3px;padding:22px 20px;margin-block:22px}
+.verdict .vhead{font-family:var(--display);font-size:clamp(19px,2.8vw,24px);font-weight:600;
+  margin-block:0 10px;line-height:1.2}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-block:22px}
+.fact{background:var(--surface);padding:16px 16px 14px}
+.fact .n{font-family:var(--mono);font-size:clamp(26px,4.4vw,34px);font-weight:600;line-height:1.05;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fact .k{font-size:12.5px;color:var(--ink-2);margin-block:7px 0;line-height:1.4}
+.fact.bad .n{color:var(--crit-ink)} .fact.ok .n{color:var(--good-ink)} .fact.mid .n{color:var(--warn-ink)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto;margin-block:14px 18px;border:1px solid var(--line);border-radius:3px;
+  background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--surface-2);font-weight:600;font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-2);white-space:nowrap;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:600;background:var(--surface-2)}
+td.neg{color:var(--crit-ink)} td.pos{color:var(--good-ink)}
+.src{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.02em}
+
+/* ---- pills ---- */
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;
+  border-radius:99px;font-family:var(--body);letter-spacing:.02em;white-space:nowrap}
+.pill.fact-p{background:var(--accent-soft);color:var(--accent)}
+.pill.assum{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn-ink)}
+.pill.unk{background:color-mix(in srgb,var(--crit) 15%,transparent);color:var(--crit-ink)}
+.pill.good-p{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good-ink)}
+
+/* ---- callouts ---- */
+.note{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--surface);
+  padding:14px 16px;border-radius:3px;margin-block:16px;font-size:14px}
+.note.warn{border-left-color:var(--warn)}
+.note.crit{border-left-color:var(--crit)}
+.note.good{border-left-color:var(--good)}
+.note p:last-child{margin-bottom:0}
+.note .nt{font-weight:600;margin-block:0 5px;font-size:13px;letter-spacing:.01em}
+
+/* ---- figures ---- */
+figure{margin:0;padding-block:8px 4px}
+figure svg{max-width:100%;height:auto;display:block}
+figcaption{font-size:12.5px;color:var(--ink-3);margin-block:10px 0;max-width:72ch;line-height:1.5}
+.fig-scroll{overflow-x:auto}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px}
+
+/* ---- legend ---- */
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-block:10px 0;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:11px;height:11px;border-radius:2px;flex:none}
+.sw.line{height:3px;width:16px;border-radius:2px}
+
+/* ---- calculator ---- */
+.calc{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:20px;margin-block:18px}
+@media(max-width:780px){.calc{grid-template-columns:1fr}}
+.ctrls{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px}
+.ctrl{margin-block:0 16px}
+.ctrl:last-child{margin-bottom:0}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;
+  color:var(--ink-2);margin-block:0 6px;font-weight:500}
+.ctrl label b{font-family:var(--mono);font-size:14px;color:var(--ink);font-weight:600;
+  font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);height:22px;margin:0}
+select{width:100%;padding:7px 9px;font-family:var(--body);font-size:13.5px;background:var(--surface-2);
+  color:var(--ink);border:1px solid var(--line-strong);border-radius:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.out{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;
+  overflow:hidden;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));align-content:start}
+.o{background:var(--surface);padding:13px 14px}
+.o .ov{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  line-height:1.15;letter-spacing:-.01em}
+.o .ok2{font-size:11.5px;color:var(--ink-2);margin-block:5px 0;line-height:1.35}
+.o.big{grid-column:1/-1}
+.o.big .ov{font-size:clamp(24px,4vw,30px)}
+.bar-mini{height:6px;background:var(--surface-2);border-radius:99px;margin-block:9px 0;overflow:hidden}
+.bar-mini i{display:block;height:100%;border-radius:99px;background:var(--accent);transition:width .18s}
+
+/* ---- phases ---- */
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;
+  margin-block:0 12px;border-top:3px solid var(--line-strong)}
+.phase.p0{border-top-color:var(--crit)}
+.phase.p1{border-top-color:var(--warn)}
+.phase.p2{border-top-color:var(--good)}
+.phase .pn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3);
+  text-transform:uppercase;font-weight:600}
+.phase .pt{font-family:var(--display);font-size:19px;font-weight:600;margin-block:3px 8px}
+.trigger{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);padding:8px 11px;
+  border-radius:3px;margin-block:10px 0;border-left:2px solid var(--accent)}
+
+/* ---- tooltip ---- */
+.tip{position:fixed;pointer-events:none;background:var(--surface);border:1px solid var(--line-strong);
+  border-radius:3px;padding:7px 10px;font-size:12px;font-family:var(--body);color:var(--ink);
+  box-shadow:0 4px 14px rgba(0,0,0,.16);z-index:99;max-width:250px;line-height:1.4}
+.tip .tv{font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums}
+.hit{cursor:crosshair}
+.q{font-family:var(--display);font-size:15px;color:var(--ink-3);margin-right:7px;font-weight:600}
+details{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:12px 15px;
+  margin-block:0 9px}
+details summary{cursor:pointer;font-weight:600;font-size:14px}
+details[open] summary{margin-block:0 9px}
+.foot{margin-block:44px 0;padding-block:20px 0;border-top:1px solid var(--line);font-size:12.5px;
+  color:var(--ink-3);max-width:76ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="top-in">
+    <div class="eyebrow">VTS Engineering · Эстония · анализ от 20.09.2026</div>
+    <h1>Цех на двоих</h1>
+    <p class="sub">Производственно-финансовая модель совместного металлообрабатывающего
+      производства: A (Руслан) — заказы и первый пресс, B (VTS / Владислав) — помещение
+      и инфраструктура, C (Александр) — сварка, D — специалист по гибке.</p>
+    <div class="meta">
+      <span>Ставки Эстонии 2026 — проверены</span>
+      <span>Резерв €5 000</span>
+      <span>Аренда не подписана</span>
+      <span>Заказов от A сейчас: 0</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="toc-in">
+  <a href="#verdict">Вердикт</a><a href="#facts">Цифры и допущения</a><a href="#risk">Кто чем рискует</a>
+  <a href="#opex">Постоянные расходы</a><a href="#be">Безубыточность</a><a href="#calc">Калькулятор</a>
+  <a href="#cash">Денежный поток</a><a href="#flow">Путь заказа</a><a href="#water">Водопад денег</a>
+  <a href="#weld">Сварка</a><a href="#bend">Гибка</a><a href="#reg">Риски</a>
+  <a href="#fix">Проблема → решение</a><a href="#plan">План 0–6 мес</a><a href="#press2">Второй пресс</a>
+  <a href="#open">Вопросы</a><a href="#deal">Договор</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ============ VERDICT ============ -->
+<section id="verdict">
+  <div class="eyebrow">Главное</div>
+  <h2>Вердикт: в нынешней конфигурации проект не финансируется</h2>
+
+  <div class="facts">
+    <div class="fact bad"><div class="n">5 дней</div>
+      <div class="k">столько живёт резерв €5 000 при 260 м², наёмном D и депозите в 2 месяца —
+        если заказов нет</div></div>
+    <div class="fact bad"><div class="n">€9 170</div>
+      <div class="k">реальная точка безубыточности в месяц при 260 м² + D. В исходном документе
+        верхний сценарий — €10 000</div></div>
+    <div class="fact bad"><div class="n">€0</div>
+      <div class="k">фактические заказы от A на сегодня. Всё остальное — обещания</div></div>
+    <div class="fact ok"><div class="n">€3 391</div>
+      <div class="k">точка безубыточности, если взять 130 м² и не нанимать D. Это уже достижимо</div></div>
+  </div>
+
+  <div class="verdict">
+    <div class="vhead">Аренду подписывать нельзя, пока A не даст первые оплаченные заказы</div>
+    <p>Депозит в 2 месяца по 260 м² — это <span class="mono">€4 160</span>. От резерва
+      в <span class="mono">€5 000</span> остаётся <span class="mono">€840</span>, а месяц цеха
+      с наёмным D стоит <span class="mono">€5 043</span>. Деньги заканчиваются на первой неделе,
+      до того как из цеха выйдет первая деталь.</p>
+    <p style="margin-bottom:0">Это не «не берись». Это «не бери сразу 260 м² и не нанимай человека
+      под обещания». Договор ещё не подписан — значит все рычаги ещё у тебя в руках.
+      Ниже посчитано, какие именно.</p>
+  </div>
+
+  <h3>Что делать — коротко</h3>
+  <ol>
+    <li><strong>Не подписывать аренду сейчас.</strong> Сначала — первые реальные оплаченные
+      заказы от A, выполненные на чужих мощностях или субподрядом.</li>
+    <li><strong>Брать 130–150 м², а не 260.</strong> Экономия <span class="mono">€1 040/мес</span>
+      и вдвое меньший депозит. Расширяться — по факту загрузки.</li>
+    <li><strong>Не нанимать D в штат VTS.</strong> Пресс принадлежит A — оператор пресса тоже
+      должен быть расходом A. Это снимает <span class="mono">€20 200</span> в год.</li>
+    <li><strong>Взять с A плату за место станка.</strong> Станок A занимает твою площадь —
+      это <span class="mono">€390/мес</span> компенсации, которые ты сейчас не получаешь.</li>
+    <li><strong>Зарегистрировать KM до подписания аренды</strong>, если VTS ещё не KM-обязанный —
+      иначе 24% с аренды и оборудования сгорают.</li>
+  </ol>
+</section>
+
+<!-- ============ FACTS ============ -->
+<section id="facts">
+  <div class="eyebrow">Основание</div>
+  <h2>Что проверено, что допущено, чего я не знаю</h2>
+  <p>Исходный документ требует для каждой существенной цифры указывать источник или формулу.
+    Ниже — разделение честное: <span class="pill fact-p">проверено</span> берётся из официальных
+    и профессиональных источников, <span class="pill assum">допущение</span> — моя оценка,
+    <span class="pill unk">не подтверждено</span> — цифра, которую нельзя брать в расчёт без тебя.</p>
+
+  <h3>Налоги и ставки Эстонии, 2026 — проверено</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Показатель</th><th class="num">Значение</th><th>Следствие для проекта</th></tr></thead>
+    <tbody>
+      <tr><td>Социальный налог (работодатель)</td><td class="num">33 %</td><td rowspan="2">Полная нагрузка на работодателя — <strong>33,8 % сверх брутто</strong></td></tr>
+      <tr><td>Страхование от безработицы (работодатель)</td><td class="num">0,8 %</td></tr>
+      <tr><td>Страхование от безработицы (работник)</td><td class="num">1,6 %</td><td>Удерживается до подоходного</td></tr>
+      <tr><td>II пенсионная ступень</td><td class="num">2 %</td><td>Можно 4 % или 6 % по выбору работника</td></tr>
+      <tr><td>Подоходный налог</td><td class="num">22 %</td><td>Плоская ставка</td></tr>
+      <tr><td>Необлагаемый минимум</td><td class="num">€700/мес</td><td>€8 400/год, без ступенчатого снижения</td></tr>
+      <tr><td>Минимальное соц. обязательство</td><td class="num">€292,38</td><td>В месяц на работника — платится даже при малой загрузке</td></tr>
+      <tr><td>Налог на распределённую прибыль</td><td class="num">22/78</td><td>Чтобы выплатить €10 000 дивиденда, нужно €12 821</td></tr>
+      <tr><td>KM (налог с оборота)</td><td class="num">24 %</td><td>Порог регистрации €40 000/год, добровольная — возможна</td></tr>
+      <tr><td>Аренда недвижимости и KM</td><td class="num">по выбору</td><td>Освобождена, но арендодатель вправе облагать — <strong>проверить в договоре</strong></td></tr>
+      <tr><td>Минимальная зарплата</td><td class="num">€946 / €5,67</td><td>В месяц / в час</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Источники: KPMG Baltics Tax Card 2026 (в силе с 01.01.2026); Эстонский налогово-таможенный департамент (EMTA); ERR.</p>
+
+  <h3>Зарплата D — €1 100 нетто, нанимает VTS</h3>
+  <p>Ты подтвердил: €1 100 — это на руки, наниматель — VTS. Это самый дорогой из возможных
+    вариантов. Вот что он стоит на самом деле:</p>
+  <div class="tw"><table>
+    <thead><tr><th>Строка</th><th class="num">€/мес</th><th>Формула</th></tr></thead>
+    <tbody>
+      <tr><td>На руки (нетто)</td><td class="num">1 100,00</td><td class="src">задано</td></tr>
+      <tr><td>Брутто</td><td class="num">1 258,11</td><td class="src">(нетто − 0,22×700) ÷ (0,964 × 0,78)</td></tr>
+      <tr><td>Страх. от безработицы 1,6 %</td><td class="num">20,13</td><td class="src">удержание с работника</td></tr>
+      <tr><td>II ступень 2 %</td><td class="num">25,16</td><td class="src">удержание с работника</td></tr>
+      <tr><td>Подоходный 22 %</td><td class="num">112,82</td><td class="src">22 % × (1 258,11 − 20,13 − 25,16 − 700)</td></tr>
+      <tr><td>Социальный налог 33 %</td><td class="num">415,18</td><td class="src">33 % × брутто (больше минимума €292,38)</td></tr>
+      <tr><td>Страх. от безработицы 0,8 %</td><td class="num">10,06</td><td class="src">платит работодатель</td></tr>
+      <tr class="total"><td>Стоимость для VTS</td><td class="num">1 683,35</td><td class="src">= €20 200 в год</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note warn">
+    <div class="nt">Уточнение к тому, что я сказал раньше</div>
+    <p>Я упоминал «плюс ~7,7 % на отпускные». Для помесячного оклада это неверно: отпуск
+      в Эстонии — оплачиваемые дни внутри тех же 12 окладов, дополнительных денег сверху нет.
+      Эффект есть, но он в другом месте — в <strong>количестве оплачиваемых часов</strong>.
+      Из 2 080 календарных часов в год остаётся 1 800 рабочих (минус 28 кал. дней отпуска,
+      ~10 праздников, запас на больничный), а при реалистичной загрузке 75 % оплачиваемых
+      остаётся <strong>1 350 часов</strong>. Значит одна только зарплата D — это
+      <strong>€14,96 на каждый оплачиваемый час</strong>, а не €20 200 ÷ 2 080 = €9,71.</p>
+  </div>
+
+  <h3>Допущения — ими модель дышит, их надо подтвердить</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Параметр</th><th class="num">Взято</th><th>Статус</th><th>Что будет, если ошибка</th></tr></thead>
+    <tbody>
+      <tr><td>Материал + лазер в счёте клиенту</td><td class="num">45 %</td><td><span class="pill fact-p">с твоих слов</span></td><td>При 60 % точка безубыточности растёт в 1,4 раза</td></tr>
+      <tr><td>Электричество, 260 м²</td><td class="num">€400</td><td><span class="pill unk">не подтверждено</span></td><td>Взято из исходного документа как ориентир. Нужен расчёт по паспортным мощностям</td></tr>
+      <tr><td>Отопление, 260 м²</td><td class="num">€250</td><td><span class="pill unk">не подтверждено</span></td><td>Зимой в цеху может быть больше аренды. <strong>Я не могу это подтвердить</strong></td></tr>
+      <tr><td>Бухгалтерия</td><td class="num">€150</td><td><span class="pill assum">допущение</span></td><td>Рыночная вилка €80–250</td></tr>
+      <tr><td>Страхование</td><td class="num">€90</td><td><span class="pill assum">допущение</span></td><td>Зависит от оборудования и страховой суммы</td></tr>
+      <tr><td>Расходники (газ, проволока, диски, СИЗ)</td><td class="num">€180</td><td><span class="pill assum">допущение</span></td><td>Растёт с загрузкой — частично переменный расход</td></tr>
+      <tr><td>Депозит по аренде</td><td class="num">2 месяца</td><td><span class="pill assum">допущение</span></td><td>Бывает 1–3. Каждый месяц депозита = €2 080 из резерва</td></tr>
+      <tr><td>Оплачиваемая доля рабочего времени</td><td class="num">75 %</td><td><span class="pill assum">допущение</span></td><td>В новом цеху первые месяцы реально 50–60 %</td></tr>
+      <tr><td>Площадь под пресс A с рабочей зоной</td><td class="num">30 м²</td><td><span class="pill assum">допущение</span></td><td>Зависит от длины стола и логистики листа</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note crit">
+    <div class="nt">Чего в модели нет вообще</div>
+    <p>CAPEX на обустройство цеха: вытяжка, компрессор, верстаки, стеллажи, оснастка, сварочные
+      посты, СИЗ, огнетушители, аптечка, освещение, подводка питания. Даже по минимуму это
+      несколько тысяч евро, и при резерве €5 000 эта строка решает всё.
+      <strong>Я не могу назвать эту сумму без списка того, что у тебя уже есть.</strong>
+      Это первое, что нужно посчитать вместе.</p>
+  </div>
+</section>
+
+<!-- ============ RISK ASYMMETRY ============ -->
+<section id="risk">
+  <div class="eyebrow">Структура сделки</div>
+  <h2>Кто чем рискует — и почему это не поровну</h2>
+  <p>Оба партнёра «вкладываются», но вклады разной природы. A вкладывает <strong>актив</strong>:
+    пресс можно погрузить и увезти, он сохраняет стоимость. B вкладывает <strong>обязательство</strong>:
+    аренду увезти нельзя, из неё нельзя выйти, и она приходит каждый месяц независимо
+    от того, есть заказы или нет.</p>
+
+  <figure class="fig-scroll">
+    <svg viewBox="0 0 860 330" role="img" aria-label="Сравнение вкладов: актив A в €20 000 остаётся возвратным и может быть вывезен в любой месяц, тогда как аренда B накапливается невозвратно до €24 960 за год">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <polygon points="0,0 10,5 0,10" fill="currentColor"/>
+        </marker>
+        <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <polygon points="0,0 10,5 0,10" fill="var(--s5)"/>
+        </marker>
+      </defs>
+
+      <text x="0" y="14" font-family="var(--mono)" font-size="11" font-weight="600" fill="currentColor" letter-spacing="1.4">A — ФИРМА РУСЛАНА</text>
+      <rect x="0" y="26" width="120" height="52" rx="2" fill="var(--s2)" opacity="0.18" stroke="var(--s2)" stroke-width="1.5"/>
+      <text x="60" y="48" text-anchor="middle" font-size="13" font-weight="600" font-family="var(--mono)" fill="currentColor">€20 000</text>
+      <text x="60" y="65" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.75">пресс, актив</text>
+      <line x1="126" y1="52" x2="560" y2="52" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.5"/>
+      <line x1="566" y1="52" x2="700" y2="52" stroke="var(--s5)" stroke-width="2" marker-end="url(#arR)"/>
+      <text x="600" y="42" font-size="11" fill="var(--s5)" font-weight="600">вывоз станка</text>
+      <text x="600" y="68" font-size="10.5" fill="currentColor" opacity="0.75">актив возвращается к A</text>
+      <text x="130" y="47" font-size="10.5" fill="currentColor" opacity="0.7">стоимость сохраняется весь срок</text>
+
+      <line x1="0" y1="100" x2="860" y2="100" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+
+      <text x="0" y="126" font-family="var(--mono)" font-size="11" font-weight="600" fill="currentColor" letter-spacing="1.4">B — VTS ENGINEERING</text>
+      <g fill="var(--s1)">
+        <rect x="0"   y="203" width="42" height="17" rx="1.5"/>
+        <rect x="47"  y="186" width="42" height="34" rx="1.5"/>
+        <rect x="94"  y="169" width="42" height="51" rx="1.5"/>
+        <rect x="141" y="152" width="42" height="68" rx="1.5"/>
+        <rect x="188" y="135" width="42" height="85" rx="1.5"/>
+        <rect x="235" y="118" width="42" height="102" rx="1.5"/>
+        <rect x="282" y="101" width="42" height="119" rx="1.5"/>
+        <rect x="329" y="84"  width="42" height="136" rx="1.5"/>
+        <rect x="376" y="67"  width="42" height="153" rx="1.5"/>
+        <rect x="423" y="50"  width="42" height="170" rx="1.5"/>
+        <rect x="470" y="33"  width="42" height="187" rx="1.5"/>
+        <rect x="517" y="16"  width="42" height="204" rx="1.5"/>
+      </g>
+      <line x1="0" y1="220" x2="700" y2="220" stroke="currentColor" stroke-width="1.5"/>
+      <text x="0" y="238" font-size="10.5" fill="currentColor" opacity="0.7">мес 1</text>
+      <text x="538" y="238" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.7">мес 12</text>
+      <line x1="566" y1="120" x2="700" y2="120" stroke="var(--s5)" stroke-width="2" marker-end="url(#arR)"/>
+      <text x="600" y="110" font-size="11" fill="var(--s5)" font-weight="600">ничего не возвращается</text>
+      <text x="575" y="14" font-size="13" font-weight="600" font-family="var(--mono)" fill="currentColor">€24 960</text>
+      <text x="575" y="30" font-size="10.5" fill="currentColor" opacity="0.75">накоплено за 12 мес</text>
+
+      <text x="0" y="272" font-size="12" font-weight="600" fill="currentColor">Разрыв на 12-м месяце, если сотрудничество прекращается:</text>
+      <text x="0" y="294" font-size="12" fill="currentColor">A забирает актив на <tspan font-family="var(--mono)" font-weight="600">€20 000</tspan>.
+        B остаётся с израсходованными <tspan font-family="var(--mono)" font-weight="600" fill="var(--s5)">€24 960</tspan> и действующим договором аренды.</text>
+      <text x="0" y="316" font-size="11.5" fill="currentColor" opacity="0.72">Аренда 260 м² × €8 = €2 080/мес. Срок договора — переменная, которую ты ещё можешь изменить.</text>
+    </svg>
+    <figcaption>Столбцы — накопленная аренда B по месяцам; блок слева — актив A, который не
+      амортизируется в этой картине, потому что остаётся собственностью A.
+      Вывод не в том, что A поступает нечестно, а в том, что <strong>договор должен компенсировать
+      именно эту разницу</strong>: платой за место станка, минимальным объёмом заказов
+      и правом выхода из аренды.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ OPEX ============ -->
+<section id="opex">
+  <div class="eyebrow">Расходы</div>
+  <h2>Куда уходят деньги каждый месяц</h2>
+  <p>Постоянные расходы — то, что списывается независимо от заказов. Это и есть счётчик,
+    против которого работает резерв. Сравнение двух конфигураций помещения:</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Статья</th><th class="num">260 м²</th><th class="num">130 м²</th><th class="num">Разница</th><th>Статус</th></tr></thead>
+    <tbody>
+      <tr><td>Аренда (€8/м² без KM)</td><td class="num">2 080</td><td class="num">1 040</td><td class="num">−1 040</td><td><span class="pill fact-p">из документа</span></td></tr>
+      <tr><td>Электричество</td><td class="num">400</td><td class="num">200</td><td class="num">−200</td><td><span class="pill unk">не подтверждено</span></td></tr>
+      <tr><td>Отопление</td><td class="num">250</td><td class="num">125</td><td class="num">−125</td><td><span class="pill unk">не подтверждено</span></td></tr>
+      <tr><td>Вода, канализация, вывоз</td><td class="num">70</td><td class="num">35</td><td class="num">−35</td><td><span class="pill assum">допущение</span></td></tr>
+      <tr><td>Интернет и связь</td><td class="num">40</td><td class="num">40</td><td class="num">0</td><td><span class="pill assum">допущение</span></td></tr>
+      <tr><td>Бухгалтерия</td><td class="num">150</td><td class="num">150</td><td class="num">0</td><td><span class="pill assum">допущение</span></td></tr>
+      <tr><td>Страхование</td><td class="num">90</td><td class="num">45</td><td class="num">−45</td><td><span class="pill assum">допущение</span></td></tr>
+      <tr><td>Расходники</td><td class="num">180</td><td class="num">180</td><td class="num">0</td><td><span class="pill assum">допущение</span></td></tr>
+      <tr><td>Обслуживание и инструмент</td><td class="num">100</td><td class="num">50</td><td class="num">−50</td><td><span class="pill assum">допущение</span></td></tr>
+      <tr class="total"><td>Итого без зарплат</td><td class="num">3 360</td><td class="num">1 865</td><td class="num">−1 495</td><td></td></tr>
+      <tr><td>D в штате VTS (€1 100 нетто)</td><td class="num">1 683</td><td class="num">1 683</td><td class="num">0</td><td><span class="pill fact-p">подтверждено</span></td></tr>
+      <tr class="total"><td>Итого с D</td><td class="num">5 043</td><td class="num">3 548</td><td class="num">−1 495</td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note">
+    <div class="nt">Два решения — половина расходов</div>
+    <p>Площадь и наём — это <span class="mono">€1 040 + €1 683 = €2 723</span> в месяц,
+      то есть <strong>54 % всей постоянной нагрузки</strong>. Оба решения принимаются до старта
+      и оба пока не приняты. Всё остальное в таблице — мелочь по сравнению с этими двумя строками.</p>
+  </div>
+</section>
+
+<!-- ============ BREAK-EVEN ============ -->
+<section id="be">
+  <div class="eyebrow">Безубыточность</div>
+  <h2>Сколько надо зарабатывать, чтобы выйти в ноль</h2>
+  <p>При доле материала и лазера 45 % с каждого евро выручки на покрытие цеха остаётся 55 центов.
+    Значит точка безубыточности = постоянные расходы ÷ 0,55.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 262" role="img" aria-label="Точка безубыточности по четырём конфигурациям: 260 м² с D — 9170 евро, 260 м² без D — 6109, 130 м² с D — 6452, 130 м² без D — 3391 евро в месяц">
+      <g font-size="11.5" fill="currentColor">
+        <!-- grid -->
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="210" y1="26" x2="210" y2="214"/><line x1="322" y1="26" x2="322" y2="214"/>
+          <line x1="434" y1="26" x2="434" y2="214"/><line x1="546" y1="26" x2="546" y2="214"/>
+          <line x1="658" y1="26" x2="658" y2="214"/>
+        </g>
+        <g text-anchor="middle" fill="currentColor" opacity="0.6" font-size="10.5" font-family="var(--mono)">
+          <text x="210" y="228">0</text><text x="322" y="228">2 500</text><text x="434" y="228">5 000</text>
+          <text x="546" y="228">7 500</text><text x="658" y="228">10 000</text>
+        </g>
+        <!-- bars -->
+        <text x="200" y="45" text-anchor="end" font-size="12">260 м² + D в штате</text>
+        <rect x="210" y="32" width="411" height="20" rx="2" fill="var(--s5)"/>
+        <text x="631" y="46" font-size="12" font-weight="600" font-family="var(--mono)" fill="currentColor">€9 170</text>
+
+        <text x="200" y="88" text-anchor="end" font-size="12">130 м² + D в штате</text>
+        <rect x="210" y="75" width="289" height="20" rx="2" fill="var(--s2)"/>
+        <text x="509" y="89" font-size="12" font-weight="600" font-family="var(--mono)" fill="currentColor">€6 452</text>
+
+        <text x="200" y="131" text-anchor="end" font-size="12">260 м², D не в штате</text>
+        <rect x="210" y="118" width="274" height="20" rx="2" fill="var(--s2)"/>
+        <text x="494" y="132" font-size="12" font-weight="600" font-family="var(--mono)" fill="currentColor">€6 109</text>
+
+        <text x="200" y="174" text-anchor="end" font-size="12" font-weight="600">130 м², D не в штате</text>
+        <rect x="210" y="161" width="152" height="20" rx="2" fill="var(--s3)"/>
+        <text x="372" y="175" font-size="12" font-weight="600" font-family="var(--mono)" fill="currentColor">€3 391</text>
+
+        <!-- reference line: actual orders -->
+        <line x1="210" y1="26" x2="210" y2="214" stroke="var(--s5)" stroke-width="2"/>
+        <text x="214" y="207" font-size="10.5" fill="var(--s5)" font-weight="600">факт сегодня: €0</text>
+        <text x="434" y="248" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.72">выручка в месяц, € без KM</text>
+      </g>
+    </svg>
+    <figcaption>Красная линия слева — реальный объём заказов от A на сегодня. Расстояние от неё
+      до конца каждой полосы и есть то, что предстоит пройти. Зелёная полоса — единственная
+      конфигурация, где разрыв выглядит преодолимым.</figcaption>
+  </figure>
+
+  <div class="tw"><table>
+    <thead><tr><th>Выручка в месяц</th><th class="num">€0</th><th class="num">€2 500</th><th class="num">€5 000</th><th class="num">€7 500</th><th class="num">€10 000</th></tr></thead>
+    <tbody>
+      <tr><td>260 м² + D — прибыль</td><td class="num neg">−5 043</td><td class="num neg">−3 668</td><td class="num neg">−2 293</td><td class="num neg">−918</td><td class="num pos">+457</td></tr>
+      <tr><td>260 м², без D</td><td class="num neg">−3 360</td><td class="num neg">−1 985</td><td class="num neg">−610</td><td class="num pos">+765</td><td class="num pos">+2 140</td></tr>
+      <tr><td>130 м² + D</td><td class="num neg">−3 548</td><td class="num neg">−2 173</td><td class="num neg">−798</td><td class="num pos">+577</td><td class="num pos">+1 952</td></tr>
+      <tr><td><strong>130 м², без D</strong></td><td class="num neg">−1 865</td><td class="num neg">−490</td><td class="num pos">+885</td><td class="num pos">+2 260</td><td class="num pos">+3 635</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note crit">
+    <div class="nt">Сценарий «€5 000» из исходного документа — это убыток в трёх конфигурациях из четырёх</div>
+    <p>Сетка сценариев в мастер-инструкции (€0 / 2 500 / 5 000 / 7 500 / 10 000) выглядит так,
+      будто середина — это норма. На самом деле <strong>€5 000 выручки приносит прибыль только
+      при 130 м² без наёмного работника</strong>. В базовой конфигурации это минус €2 293 в месяц.</p>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section id="calc">
+  <div class="eyebrow">Инструмент</div>
+  <h2>Посчитай свой вариант</h2>
+  <p>Двигай ползунки — цифры пересчитываются сразу. Это тот же расчёт, что в таблицах выше,
+    только с твоими числами. Настройки сохраняются в твоём браузере.</p>
+
+  <div class="calc">
+    <div class="ctrls">
+      <div class="ctrl">
+        <label for="area">Площадь помещения <b><span id="areaV">130</span> м²</b></label>
+        <input type="range" id="area" min="60" max="300" step="10" value="130">
+      </div>
+      <div class="ctrl">
+        <label for="rate">Ставка аренды <b>€<span id="rateV">8,0</span>/м²</b></label>
+        <input type="range" id="rate" min="4" max="14" step="0.5" value="8">
+      </div>
+      <div class="ctrl">
+        <label for="rev">Выручка в месяц <b>€<span id="revV">0</span></b></label>
+        <input type="range" id="rev" min="0" max="16000" step="250" value="0">
+      </div>
+      <div class="ctrl">
+        <label for="mat">Материал + лазер <b><span id="matV">45</span> %</b></label>
+        <input type="range" id="mat" min="20" max="75" step="1" value="45">
+      </div>
+      <div class="ctrl">
+        <label for="dsel">Специалист по гибке (D)</label>
+        <select id="dsel">
+          <option value="net1100" selected>В штате VTS — €1 100 нетто</option>
+          <option value="gross1100">В штате VTS — €1 100 брутто</option>
+          <option value="none">Не в штате VTS (нанимает A или работа по счёту)</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label for="res">Денежный резерв <b>€<span id="resV">5 000</span></b></label>
+        <input type="range" id="res" min="0" max="40000" step="500" value="5000">
+      </div>
+      <div class="ctrl">
+        <label for="dep">Депозит по аренде <b><span id="depV">2</span> мес</b></label>
+        <input type="range" id="dep" min="0" max="3" step="1" value="2">
+      </div>
+      <div class="ctrl">
+        <label for="place">Плата от A за место станка <b>€<span id="placeV">0</span>/мес</b></label>
+        <input type="range" id="place" min="0" max="900" step="10" value="0">
+      </div>
+    </div>
+
+    <div class="out">
+      <div class="o big">
+        <div class="ov" id="oProfit">—</div>
+        <div class="ok2" id="oProfitK">прибыль / убыток в месяц</div>
+        <div class="bar-mini"><i id="oBar" style="width:0%"></i></div>
+      </div>
+      <div class="o"><div class="ov" id="oFixed">—</div><div class="ok2">постоянные расходы в месяц</div></div>
+      <div class="o"><div class="ov" id="oBE">—</div><div class="ok2">точка безубыточности, выручка/мес</div></div>
+      <div class="o"><div class="ov" id="oContrib">—</div><div class="ok2">остаётся после материала и лазера</div></div>
+      <div class="o"><div class="ov" id="oAfterDep">—</div><div class="ok2">денег после уплаты депозита</div></div>
+      <div class="o"><div class="ov" id="oRunway">—</div><div class="ok2">сколько продержишься без заказов</div></div>
+      <div class="o"><div class="ov" id="oGap">—</div><div class="ok2">сколько не хватает до безубыточности</div></div>
+    </div>
+  </div>
+  <p class="src">Постоянные расходы кроме аренды масштабируются от площади (электричество, отопление,
+    вода, страхование, обслуживание); интернет, бухгалтерия и расходники приняты не зависящими
+    от площади. Плата за место станка уменьшает твои чистые постоянные расходы.</p>
+</section>
+
+<!-- ============ CASH FLOW ============ -->
+<section id="cash">
+  <div class="eyebrow">Деньги во времени</div>
+  <h2>Что происходит со счётом за первый год</h2>
+  <p>Точка безубыточности — статичная картинка. Реальность — это когда заказы нарастают
+    постепенно, а расходы идут с первого дня. Здесь — реалистичный разгон: первые заказы
+    на 3-м месяце, €5 500/мес к 12-му. Старт — €5 000, депозит списывается в первом месяце.</p>
+
+  <figure class="fig-scroll">
+    <svg viewBox="0 0 760 330" role="img" aria-label="Остаток на счёте за 12 месяцев: при 260 квадратных метрах с наёмным D счёт уходит в минус 41805 евро, при 130 без D минимум минус 4635 на седьмом месяце с возвратом к минус 1585">
+      <g font-size="11">
+        <!-- y grid -->
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="70" y1="30" x2="740" y2="30"/><line x1="70" y1="83" x2="740" y2="83"/>
+          <line x1="70" y1="189" x2="740" y2="189"/><line x1="70" y1="242" x2="740" y2="242"/>
+        </g>
+        <line x1="70" y1="136" x2="740" y2="136" stroke="currentColor" stroke-width="1.6" opacity="0.55"/>
+        <g text-anchor="end" fill="currentColor" opacity="0.62" font-family="var(--mono)" font-size="10">
+          <text x="62" y="34">+10 000</text><text x="62" y="87">+5 000</text>
+          <text x="62" y="140">0</text><text x="62" y="193">−5 000</text><text x="62" y="246">−10 000</text>
+        </g>
+        <text x="66" y="266" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--s5)" font-weight="600">−41 805</text>
+        <!-- x labels -->
+        <g text-anchor="middle" fill="currentColor" opacity="0.62" font-family="var(--mono)" font-size="10">
+          <text x="70" y="286">1</text><text x="131" y="286">2</text><text x="192" y="286">3</text>
+          <text x="253" y="286">4</text><text x="314" y="286">5</text><text x="375" y="286">6</text>
+          <text x="436" y="286">7</text><text x="497" y="286">8</text><text x="558" y="286">9</text>
+          <text x="619" y="286">10</text><text x="680" y="286">11</text><text x="740" y="286">12</text>
+        </g>
+        <text x="405" y="306" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.72">месяц</text>
+
+        <!-- 260 + D : leaves the scale after month 2, drawn dashed beyond it -->
+        <polyline points="70,180 131,234" fill="none" stroke="var(--s5)" stroke-width="2.5" stroke-linejoin="round"/>
+        <polyline points="131,234 192,258 740,258" fill="none" stroke="var(--s5)" stroke-width="2.5" stroke-dasharray="6 5" stroke-linejoin="round"/>
+        <circle cx="70" cy="180" r="4.5" fill="var(--s5)" stroke="var(--surface)" stroke-width="2"/>
+        <text x="262" y="252" font-size="11" fill="var(--s5)" font-weight="600">260 м² + D — уходит за нижнюю границу, к 12-му месяцу −41 805</text>
+
+        <!-- 130 + D -->
+        <polyline points="70,143 131,180 192,212 253,241" fill="none" stroke="var(--s2)" stroke-width="2.5" stroke-linejoin="round"/>
+        <polyline points="253,241 740,241" fill="none" stroke="var(--s2)" stroke-width="2.5" stroke-dasharray="6 5"/>
+        <text x="262" y="235" font-size="11" fill="var(--s2)" font-weight="600">130 м² + D — к 12-му месяцу −21 785</text>
+
+        <!-- 130 no D : the survivable one -->
+        <polyline points="70,125 131,145 192,159 253,170 314,178 375,183 436,185 497,184 558,181 619,174 680,165 740,153"
+                  fill="none" stroke="var(--s3)" stroke-width="3" stroke-linejoin="round"/>
+        <g fill="var(--s3)" stroke="var(--surface)" stroke-width="2">
+          <circle cx="70" cy="125" r="4.5"/><circle cx="436" cy="185" r="4.5"/><circle cx="740" cy="153" r="4.5"/>
+        </g>
+        <text x="78" y="118" font-size="11" fill="var(--s3)" font-weight="600" font-family="var(--mono)">+1 055</text>
+        <text x="436" y="205" text-anchor="middle" font-size="11" fill="var(--s3)" font-weight="600" font-family="var(--mono)">−4 635</text>
+        <text x="436" y="219" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.72">дно на 7-м месяце</text>
+        <text x="738" y="146" text-anchor="end" font-size="11" fill="var(--s3)" font-weight="600" font-family="var(--mono)">−1 585</text>
+      </g>
+    </svg>
+    <figcaption>Ось — остаток денег на счёте, не прибыль. Пересечение нуля означает, что нужен
+      новый вход денег: свои, заём или кредит. Даже лучшая конфигурация за 12 месяцев
+      <strong>не возвращается в плюс</strong> при реалистичном разгоне — она лишь остаётся
+      в пределах суммы, которую реально добрать.</figcaption>
+  </figure>
+
+  <div class="legend">
+    <span><i class="sw line" style="background:var(--s3)"></i>130 м², D не в штате</span>
+    <span><i class="sw line" style="background:var(--s2)"></i>130 м² + D в штате</span>
+    <span><i class="sw line" style="background:var(--s5)"></i>260 м² + D в штате</span>
+  </div>
+
+  <h3>Три варианта разгона для конфигурации 130 м² без D</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Разгон заказов</th><th class="num">мес 3</th><th class="num">мес 6</th><th class="num">мес 9</th><th class="num">мес 12</th><th>Вывод</th></tr></thead>
+    <tbody>
+      <tr><td>Пессимистичный <span class="src">(к 12-му €2 500)</span></td><td class="num neg">−2 675</td><td class="num neg">−7 170</td><td class="num neg">−10 565</td><td class="num neg">−12 585</td><td>Проект не выживает</td></tr>
+      <tr><td>Реалистичный <span class="src">(к 12-му €5 500)</span></td><td class="num neg">−2 125</td><td class="num neg">−4 420</td><td class="num neg">−4 240</td><td class="num neg">−1 585</td><td>Нужно добрать ≈€5 000</td></tr>
+      <tr><td>Оптимистичный <span class="src">(к 12-му €10 000)</span></td><td class="num neg">−475</td><td class="num pos">+1 355</td><td class="num pos">+8 135</td><td class="num pos">+18 765</td><td>Работает</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note crit">
+    <div class="nt">Сколько денег на самом деле нужно</div>
+    <p>Резерв €5 000 покрывает <strong>примерно один месяц</strong> базовой конфигурации
+      и <strong>не покрывает ни один сценарий целиком</strong>. Чтобы пройти реалистичный разгон
+      на 130 м² без наёмного работника, нужен доступ примерно к <strong>€10 000</strong>:
+      €5 000 у тебя есть, ещё €5 000 — глубина ямы. Плюс CAPEX на обустройство, которого
+      в этом расчёте нет.</p>
+  </div>
+</section>
+
+<!-- ============ ORDER FLOW ============ -->
+<section id="flow">
+  <div class="eyebrow">Производство</div>
+  <h2>Путь заказа и путь денег</h2>
+  <p>Исходный документ требует учитывать не только время обработки, а весь цикл. Вот он целиком —
+    и видно, что на станке заказ проводит меньше времени, чем вне его.</p>
+
+  <figure class="fig-scroll">
+    <svg viewBox="0 0 900 300" role="img" aria-label="Схема прохождения заказа: клиент, продажи и расчёт у A, затем закупка материала, лазер на стороне, гибка, сварка, зачистка, контроль и упаковка у VTS, затем отгрузка и оплата с предоплатой от клиента">
+      <defs>
+        <marker id="f1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <polygon points="0,0 10,5 0,10" fill="currentColor"/>
+        </marker>
+        <marker id="f2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <polygon points="0,0 10,5 0,10" fill="var(--s3)"/>
+        </marker>
+      </defs>
+
+      <!-- lane labels -->
+      <text x="0" y="24" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--s2)" letter-spacing="1.2">A — ПРОДАЖИ</text>
+      <text x="0" y="112" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--s1)" letter-spacing="1.2">B — ЦЕХ VTS</text>
+      <text x="0" y="238" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--s3)" letter-spacing="1.2">ДЕНЬГИ</text>
+
+      <!-- A lane -->
+      <g font-size="10.5" fill="currentColor">
+        <rect x="0" y="34" width="96" height="34" rx="2" fill="var(--s2)" opacity="0.16" stroke="var(--s2)" stroke-width="1.2"/>
+        <text x="48" y="49" text-anchor="middle" font-size="10.5">заявка</text>
+        <text x="48" y="62" text-anchor="middle" font-size="10.5">клиента</text>
+        <line x1="98" y1="51" x2="124" y2="51" stroke="currentColor" stroke-width="1.3" marker-end="url(#f1)" opacity="0.65"/>
+        <rect x="128" y="34" width="96" height="34" rx="2" fill="var(--s2)" opacity="0.16" stroke="var(--s2)" stroke-width="1.2"/>
+        <text x="176" y="49" text-anchor="middle">анализ</text><text x="176" y="62" text-anchor="middle">чертежей</text>
+        <line x1="226" y1="51" x2="252" y2="51" stroke="currentColor" stroke-width="1.3" marker-end="url(#f1)" opacity="0.65"/>
+        <rect x="256" y="34" width="96" height="34" rx="2" fill="var(--s2)" opacity="0.16" stroke="var(--s2)" stroke-width="1.2"/>
+        <text x="304" y="49" text-anchor="middle">расчёт и</text><text x="304" y="62" text-anchor="middle">отправка КП</text>
+        <line x1="354" y1="51" x2="380" y2="51" stroke="currentColor" stroke-width="1.3" marker-end="url(#f1)" opacity="0.65"/>
+        <rect x="384" y="34" width="96" height="34" rx="2" fill="var(--s2)" opacity="0.16" stroke="var(--s2)" stroke-width="1.2"/>
+        <text x="432" y="55" text-anchor="middle">заказ принят</text>
+        <line x1="432" y1="70" x2="432" y2="120" stroke="currentColor" stroke-width="1.3" marker-end="url(#f1)" opacity="0.65"/>
+      </g>
+
+      <!-- B lane -->
+      <g font-size="10" fill="currentColor">
+        <rect x="0"   y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.15" stroke="var(--s1)" stroke-width="1.2"/>
+        <text x="43" y="140" text-anchor="middle">закупка</text><text x="43" y="153" text-anchor="middle">материала</text>
+        <rect x="94"  y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.15" stroke="var(--s1)" stroke-width="1.2"/>
+        <text x="137" y="140" text-anchor="middle">ожидание</text><text x="137" y="153" text-anchor="middle">поставки</text>
+        <rect x="188" y="124" width="86" height="40" rx="2" fill="var(--s4)" opacity="0.18" stroke="var(--s4)" stroke-width="1.2"/>
+        <text x="231" y="140" text-anchor="middle">лазерная резка</text><text x="231" y="153" text-anchor="middle">на стороне</text>
+        <rect x="282" y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.15" stroke="var(--s1)" stroke-width="1.2"/>
+        <text x="325" y="140" text-anchor="middle">логистика,</text><text x="325" y="153" text-anchor="middle">разгрузка</text>
+        <rect x="376" y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.28" stroke="var(--s1)" stroke-width="1.6"/>
+        <text x="419" y="140" text-anchor="middle" font-weight="600">программа,</text><text x="419" y="153" text-anchor="middle" font-weight="600">настройка</text>
+        <rect x="470" y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.28" stroke="var(--s1)" stroke-width="1.6"/>
+        <text x="513" y="147" text-anchor="middle" font-weight="600">ГИБКА</text>
+        <rect x="564" y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.28" stroke="var(--s1)" stroke-width="1.6"/>
+        <text x="607" y="140" text-anchor="middle" font-weight="600">СВАРКА</text><text x="607" y="153" text-anchor="middle" font-size="9.5">MIG/MAG, TIG</text>
+        <rect x="658" y="124" width="86" height="40" rx="2" fill="var(--s1)" opacity="0.15" stroke="var(--s1)" stroke-width="1.2"/>
+        <text x="701" y="140" text-anchor="middle">зачистка,</text><text x="701" y="153" text-anchor="middle">ОТК, упаковка</text>
+        <rect x="752" y="124" width="86" height="40" rx="2" fill="var(--s5)" opacity="0.16" stroke="var(--s5)" stroke-width="1.2"/>
+        <text x="795" y="140" text-anchor="middle">переделки</text><text x="795" y="153" text-anchor="middle">и брак</text>
+        <g stroke="currentColor" stroke-width="1.2" opacity="0.6" marker-end="url(#f1)">
+          <line x1="88" y1="144" x2="90" y2="144"/><line x1="182" y1="144" x2="184" y2="144"/>
+          <line x1="276" y1="144" x2="278" y2="144"/><line x1="370" y1="144" x2="372" y2="144"/>
+          <line x1="464" y1="144" x2="466" y2="144"/><line x1="558" y1="144" x2="560" y2="144"/>
+          <line x1="652" y1="144" x2="654" y2="144"/><line x1="746" y1="144" x2="748" y2="144"/>
+        </g>
+        <line x1="470" y1="170" x2="650" y2="170" stroke="var(--s1)" stroke-width="2"/>
+        <text x="560" y="185" text-anchor="middle" font-size="10.5" fill="var(--s1)" font-weight="600">только это — время на станке</text>
+        <line x1="0" y1="196" x2="844" y2="196" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+        <text x="422" y="211" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.8">весь остальной цикл тоже стоит денег и тоже должен попасть в цену</text>
+      </g>
+
+      <!-- money lane -->
+      <g font-size="10.5" fill="currentColor">
+        <rect x="0" y="248" width="120" height="32" rx="2" fill="var(--s3)" opacity="0.18" stroke="var(--s3)" stroke-width="1.4"/>
+        <text x="60" y="268" text-anchor="middle" font-weight="600">предоплата</text>
+        <line x1="122" y1="264" x2="160" y2="264" stroke="var(--s3)" stroke-width="1.6" marker-end="url(#f2)"/>
+        <rect x="164" y="248" width="120" height="32" rx="2" fill="var(--s3)" opacity="0.1" stroke="var(--s3)" stroke-width="1.2"/>
+        <text x="224" y="268" text-anchor="middle">оплата материала</text>
+        <line x1="286" y1="264" x2="324" y2="264" stroke="var(--s3)" stroke-width="1.6" marker-end="url(#f2)"/>
+        <rect x="328" y="248" width="120" height="32" rx="2" fill="var(--s3)" opacity="0.1" stroke="var(--s3)" stroke-width="1.2"/>
+        <text x="388" y="268" text-anchor="middle">оплата лазера</text>
+        <line x1="450" y1="264" x2="488" y2="264" stroke="var(--s3)" stroke-width="1.6" marker-end="url(#f2)"/>
+        <rect x="492" y="248" width="120" height="32" rx="2" fill="var(--s3)" opacity="0.1" stroke="var(--s3)" stroke-width="1.2"/>
+        <text x="552" y="268" text-anchor="middle">отгрузка</text>
+        <line x1="614" y1="264" x2="652" y2="264" stroke="var(--s3)" stroke-width="1.6" marker-end="url(#f2)"/>
+        <rect x="656" y="248" width="150" height="32" rx="2" fill="var(--s3)" opacity="0.18" stroke="var(--s3)" stroke-width="1.4"/>
+        <text x="731" y="268" text-anchor="middle" font-weight="600">окончательный расчёт</text>
+      </g>
+    </svg>
+    <figcaption>Нижняя дорожка — подтверждённое тобой условие: <strong>предоплата или расчёт сразу</strong>.
+      Это лучшее, что есть в сделке: материал покупается уже на деньги клиента, и потребность
+      в оборотном капитале почти нулевая. Это условие обязательно закрепить письменно —
+      именно оно отличает выживаемый вариант от невыживаемого.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ WATERFALL ============ -->
+<section id="water">
+  <div class="eyebrow">Распределение</div>
+  <h2>Водопад: что остаётся от €1 000 заказа</h2>
+  <p>Центральный принцип исходного документа: проценты не распределяются от оборота.
+    Сначала покрываются расходы, и только остаток делится. Вот как это выглядит на конкретном
+    заказе — <span class="pill assum">пример, цифры условные</span>.</p>
+
+  <figure class="fig-scroll">
+    <svg viewBox="0 0 820 300" role="img" aria-label="Водопад распределения тысячи евро: минус 450 материал и лазер, минус 55 комиссия A, минус 176 оплата работы, минус 96 доля постоянных расходов, минус 20 электроэнергия, минус 15 обслуживание, минус 55 резерв, остаётся 133 евро распределяемой прибыли">
+      <g font-size="10.5" fill="currentColor">
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="40" y1="40" x2="800" y2="40"/><line x1="40" y1="90" x2="800" y2="90"/>
+          <line x1="40" y1="140" x2="800" y2="140"/><line x1="40" y1="190" x2="800" y2="190"/>
+        </g>
+        <line x1="40" y1="240" x2="800" y2="240" stroke="currentColor" stroke-width="1.4"/>
+        <g text-anchor="end" opacity="0.6" font-family="var(--mono)" font-size="10">
+          <text x="34" y="44">1 000</text><text x="34" y="94">750</text>
+          <text x="34" y="144">500</text><text x="34" y="194">250</text><text x="34" y="244">0</text>
+        </g>
+
+        <!-- bars: y = 240 - value/5 -->
+        <rect x="50"  y="40"    width="66" height="200"  rx="2" fill="var(--s1)"/>
+        <rect x="134" y="40"    width="66" height="90"   rx="2" fill="var(--s5)"/>
+        <rect x="218" y="130"   width="66" height="11"   rx="2" fill="var(--s2)"/>
+        <rect x="302" y="141"   width="66" height="35.2" rx="2" fill="var(--s4)"/>
+        <rect x="386" y="176.2" width="66" height="19.2" rx="2" fill="var(--s4)"/>
+        <rect x="470" y="195.4" width="66" height="4"    rx="2" fill="var(--s4)"/>
+        <rect x="554" y="199.4" width="66" height="3"    rx="2" fill="var(--s4)"/>
+        <rect x="638" y="202.4" width="66" height="11"   rx="2" fill="var(--s3)" opacity="0.55"/>
+        <rect x="722" y="213.4" width="66" height="26.6" rx="2" fill="var(--s3)"/>
+
+        <!-- connectors: each runs at the running-total level -->
+        <g stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.45">
+          <line x1="116" y1="40"    x2="134" y2="40"/>
+          <line x1="200" y1="130"   x2="218" y2="130"/>
+          <line x1="284" y1="141"   x2="302" y2="141"/>
+          <line x1="368" y1="176.2" x2="386" y2="176.2"/>
+          <line x1="452" y1="195.4" x2="470" y2="195.4"/>
+          <line x1="536" y1="199.4" x2="554" y2="199.4"/>
+          <line x1="620" y1="202.4" x2="638" y2="202.4"/>
+          <line x1="704" y1="213.4" x2="722" y2="213.4"/>
+        </g>
+
+        <!-- value labels -->
+        <g text-anchor="middle" font-family="var(--mono)" font-size="11" font-weight="600">
+          <text x="83"  y="33">1 000</text>
+          <text x="167" y="33" fill="var(--s5)">−450</text>
+          <text x="251" y="124" fill="var(--s2)">−55</text>
+          <text x="335" y="135">−176</text>
+          <text x="419" y="170">−96</text>
+          <text x="503" y="189">−20</text>
+          <text x="587" y="194">−15</text>
+          <text x="671" y="197">−55</text>
+          <text x="755" y="207" fill="var(--s3)">133</text>
+        </g>
+        <!-- x labels -->
+        <g text-anchor="middle" font-size="10" opacity="0.85">
+          <text x="83"  y="256">деньги</text><text x="83"  y="268">клиента</text>
+          <text x="167" y="256">материал</text><text x="167" y="268">и лазер</text>
+          <text x="251" y="256">комиссия</text><text x="251" y="268">A</text>
+          <text x="335" y="256">оплата</text><text x="335" y="268">работы</text>
+          <text x="419" y="256">доля пост.</text><text x="419" y="268">расходов</text>
+          <text x="503" y="256">электро-</text><text x="503" y="268">энергия</text>
+          <text x="587" y="256">обслуж. и</text><text x="587" y="268">амортиз.</text>
+          <text x="671" y="256">резерв</text>
+          <text x="755" y="256" font-weight="600">ПРИБЫЛЬ</text><text x="755" y="268">к дележу</text>
+        </g>
+        <text x="420" y="292" text-anchor="middle" font-size="11" opacity="0.72">Порядок обязателен: доля делится только из последнего столбца, не из первого.</text>
+      </g>
+    </svg>
+    <figcaption>От тысячи евро до дележа доходит <strong>€133 — 13 %</strong>. Именно поэтому
+      нельзя обещать участникам «процент с оборота»: процент с первого столбца съедает весь
+      последний. Если A получает 10 % от выручки (€100), а к дележу остаётся €133 —
+      A забирает три четверти прибыли, формально взяв «всего 10 %».</figcaption>
+  </figure>
+</section>
+
+<!-- ============ WELDING ============ -->
+<section id="weld">
+  <div class="eyebrow">Сварочное направление</div>
+  <h2>Три модели комиссии A — и ловушка процента с выручки</h2>
+  <p>Исходный документ прямо требует не фиксировать процент A заранее, а построить модели
+    и сравнить. Вот они на заказе €1 000 без KM. Решающее — как меняется картина
+    при материалоёмком заказе.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 250" role="img" aria-label="Доля контрибуции, которую забирает A: при материале 45 процентов — 18,2 процента за процент с выручки, 14,5 за фиксированную комиссию, 20 за процент с маржи; при материале 70 процентов — 33,3, 26,7 и по-прежнему 20 процентов">
+      <g font-size="11" fill="currentColor">
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="150" y1="30" x2="150" y2="196"/><line x1="280" y1="30" x2="280" y2="196"/>
+          <line x1="410" y1="30" x2="410" y2="196"/><line x1="540" y1="30" x2="540" y2="196"/>
+          <line x1="670" y1="30" x2="670" y2="196"/>
+        </g>
+        <g text-anchor="middle" opacity="0.6" font-family="var(--mono)" font-size="10">
+          <text x="150" y="212">0 %</text><text x="280" y="212">10 %</text><text x="410" y="212">20 %</text>
+          <text x="540" y="212">30 %</text><text x="670" y="212">40 %</text>
+        </g>
+
+        <text x="0" y="24" font-size="11" font-weight="600" font-family="var(--mono)" letter-spacing="1">ЗАКАЗ С МАТЕРИАЛОМ 45 %</text>
+        <text x="142" y="48" text-anchor="end">10 % от выручки</text>
+        <rect x="150" y="36" width="237" height="15" rx="2" fill="var(--s1)"/><text x="394" y="48" font-family="var(--mono)" font-size="11" font-weight="600">18,2 %</text>
+        <text x="142" y="70" text-anchor="end">фикс €80 за заказ</text>
+        <rect x="150" y="58" width="189" height="15" rx="2" fill="var(--s1)" opacity="0.65"/><text x="346" y="70" font-family="var(--mono)" font-size="11" font-weight="600">14,5 %</text>
+        <text x="142" y="92" text-anchor="end">20 % от маржи</text>
+        <rect x="150" y="80" width="260" height="15" rx="2" fill="var(--s3)"/><text x="417" y="92" font-family="var(--mono)" font-size="11" font-weight="600">20,0 %</text>
+
+        <text x="0" y="128" font-size="11" font-weight="600" font-family="var(--mono)" letter-spacing="1">ЗАКАЗ С МАТЕРИАЛОМ 70 %</text>
+        <text x="142" y="152" text-anchor="end">10 % от выручки</text>
+        <rect x="150" y="140" width="433" height="15" rx="2" fill="var(--s5)"/><text x="590" y="152" font-family="var(--mono)" font-size="11" font-weight="600" fill="var(--s5)">33,3 %</text>
+        <text x="142" y="174" text-anchor="end">фикс €80 за заказ</text>
+        <rect x="150" y="162" width="347" height="15" rx="2" fill="var(--s2)"/><text x="504" y="174" font-family="var(--mono)" font-size="11" font-weight="600">26,7 %</text>
+        <text x="142" y="196" text-anchor="end">20 % от маржи</text>
+        <rect x="150" y="184" width="260" height="15" rx="2" fill="var(--s3)"/><text x="417" y="196" font-family="var(--mono)" font-size="11" font-weight="600">20,0 %</text>
+
+        <text x="0" y="236" font-size="11.5" opacity="0.8">Зелёная полоса не двигается: процент от маржи не зависит от того, сколько стоил материал.</text>
+      </g>
+    </svg>
+    <figcaption>Шкала — какую долю <strong>контрибуции</strong> (того, что реально остаётся после
+      материала) забирает A. При материалоёмком заказе «скромные 10 % с выручки» превращаются
+      в треть прибыли, потому что A получает комиссию и с металла, который купил ты.</figcaption>
+  </figure>
+
+  <div class="tw"><table>
+    <thead><tr><th>Модель</th><th class="num">Комиссия A</th><th class="num">Остаётся B+C</th><th class="num">Доля A от прибыли</th><th>Риск для B и C</th></tr></thead>
+    <tbody>
+      <tr><td colspan="5" style="background:var(--surface-2);font-weight:600;font-size:12px">Заказ €1 000, материал и лазер 45 %</td></tr>
+      <tr><td>10 % от выручки без KM</td><td class="num">100</td><td class="num">450</td><td class="num">18,2 %</td><td>Средний</td></tr>
+      <tr><td>Фиксированно €80 за заказ</td><td class="num">80</td><td class="num">470</td><td class="num">14,5 %</td><td>Низкий на крупных, высокий на мелких</td></tr>
+      <tr><td>20 % от маржинального дохода</td><td class="num">110</td><td class="num">440</td><td class="num">20,0 %</td><td>Предсказуемый</td></tr>
+      <tr><td colspan="5" style="background:var(--surface-2);font-weight:600;font-size:12px">Тот же €1 000, но материал и лазер 70 %</td></tr>
+      <tr><td>10 % от выручки без KM</td><td class="num">100</td><td class="num">200</td><td class="num neg">33,3 %</td><td><strong>Высокий</strong> — A берёт с твоего металла</td></tr>
+      <tr><td>Фиксированно €80 за заказ</td><td class="num">80</td><td class="num">220</td><td class="num">26,7 %</td><td>Повышенный</td></tr>
+      <tr><td>20 % от маржинального дохода</td><td class="num">60</td><td class="num">240</td><td class="num pos">20,0 %</td><td>Низкий — доля не зависит от материала</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note">
+    <div class="nt">Без автоматического выбора победителя</div>
+    <p>Модель «процент от маржи» устойчивее для B и C и честнее по смыслу: A получает долю
+      от того, что заработано, а не от стоимости металла. Но у неё есть цена — она требует
+      <strong>открытой калькуляции</strong>: A должен видеть себестоимость заказа, иначе
+      база для процента ему непонятна. Модель «фикс за заказ» проще всего администрировать
+      и не требует открывать цифры, но становится несправедливой на разных по размеру заказах.
+      Выбор — предмет переговоров, а не расчёта.</p>
+  </div>
+</section>
+
+<!-- ============ BENDING ============ -->
+<section id="bend">
+  <div class="eyebrow">Гибочное направление</div>
+  <h2>Четыре модели — и главный вопрос: что при простое</h2>
+  <p>Пресс принадлежит A, но стоит на площади B и потребляет инфраструктуру B. Значит VTS
+    должен получать не только оплату за свои часы, но и компенсацию за содержание цеха.
+    Ниже — четыре модели, посчитанные при разной загрузке станка (100 % = 160 машино-часов
+    в месяц). <span class="pill assum">Ставки в моделях — условные, предмет переговоров</span></p>
+
+  <figure>
+    <svg viewBox="0 0 750 290" role="img" aria-label="Доход VTS от гибочного направления при загрузке от нуля до ста процентов: модель с базовой платой даёт 390 евро при простое, комбинированная 234, а модели процент от маржи и машино-час дают ноль">
+      <g font-size="11" fill="currentColor">
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="60" y1="69.2" x2="660" y2="69.2"/><line x1="60" y1="108.4" x2="660" y2="108.4"/>
+          <line x1="60" y1="147.6" x2="660" y2="147.6"/><line x1="60" y1="186.8" x2="660" y2="186.8"/>
+        </g>
+        <line x1="60" y1="226" x2="660" y2="226" stroke="currentColor" stroke-width="1.4"/>
+        <g text-anchor="end" opacity="0.6" font-family="var(--mono)" font-size="10">
+          <text x="54" y="73">4 000</text><text x="54" y="112">3 000</text>
+          <text x="54" y="152">2 000</text><text x="54" y="191">1 000</text><text x="54" y="230">0</text>
+        </g>
+        <g text-anchor="middle" opacity="0.6" font-family="var(--mono)" font-size="10">
+          <text x="60" y="244">0 %</text><text x="210" y="244">25 %</text><text x="360" y="244">50 %</text>
+          <text x="510" y="244">75 %</text><text x="660" y="244">100 %</text>
+        </g>
+        <text x="360" y="264" text-anchor="middle" font-size="11" opacity="0.72">загрузка гибочного пресса</text>
+
+        <!-- G3 machine hour -->
+        <polyline points="60,226 210,182.1 360,138.2 510,94.3 660,50.4" fill="none" stroke="var(--s4)" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- G4 combined -->
+        <polyline points="60,216.8 210,193.7 360,170.6 510,147.4 660,124.3" fill="none" stroke="var(--s3)" stroke-width="3" stroke-linejoin="round"/>
+        <!-- G2 pct margin -->
+        <polyline points="60,226 210,204.8 360,183.7 510,162.5 660,141.3" fill="none" stroke="var(--s2)" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- G1 base + hour -->
+        <polyline points="60,210.7 210,198.2 360,185.6 510,173.1 660,160.5" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round"/>
+
+        <!-- idle markers -->
+        <g stroke="var(--surface)" stroke-width="2">
+          <circle cx="60" cy="226" r="5.5" fill="var(--s5)"/>
+          <circle cx="60" cy="216.8" r="5" fill="var(--s3)"/>
+          <circle cx="60" cy="210.7" r="5" fill="var(--s1)"/>
+        </g>
+        <text x="72" y="207" font-size="11" font-weight="600" font-family="var(--mono)" fill="var(--s1)">€390</text>
+        <text x="60" y="284" font-size="11" font-weight="600" fill="var(--s5)">при простое: €0 у двух моделей из четырёх</text>
+
+        <!-- end labels -->
+        <text x="666" y="54" font-size="10.5" fill="var(--s4)" font-weight="600">машино-час</text>
+        <text x="666" y="128" font-size="10.5" fill="var(--s3)" font-weight="600">комбинир.</text>
+        <text x="666" y="145" font-size="10.5" fill="var(--s2)" font-weight="600">% от маржи</text>
+        <text x="666" y="164" font-size="10.5" fill="var(--s1)" font-weight="600">база + час</text>
+      </g>
+    </svg>
+    <figcaption>Смотри не на правый край, а на левый. При нулевой загрузке — а сейчас заказов
+      ноль — модели «процент от маржи» и «машино-час» дают VTS <strong>ровно ничего</strong>,
+      хотя аренда уплачена и площадь занята станком A.</figcaption>
+  </figure>
+
+  <div class="tw"><table>
+    <thead><tr><th>Модель</th><th class="num">Простой</th><th class="num">50 %</th><th class="num">100 %</th><th>Кто несёт риск простоя</th></tr></thead>
+    <tbody>
+      <tr><td><strong>G1.</strong> База за место + €8/гибочный час</td><td class="num pos">390</td><td class="num">1 030</td><td class="num">1 670</td><td class="pos">A — база платится всегда</td></tr>
+      <tr><td><strong>G2.</strong> 30 % от маржи гибки</td><td class="num neg">0</td><td class="num">1 080</td><td class="num">2 160</td><td class="neg">B — целиком</td></tr>
+      <tr><td><strong>G3.</strong> Машино-час €28 всё включено</td><td class="num neg">0</td><td class="num">2 240</td><td class="num">4 480</td><td class="neg">B — целиком</td></tr>
+      <tr><td><strong>G4.</strong> Базa €234 + €8/час + 15 % маржи</td><td class="num pos">234</td><td class="num">1 414</td><td class="num">2 594</td><td class="pos">Разделён</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note warn">
+    <div class="nt">Как читать эту таблицу на переговорах</div>
+    <p>G3 выглядит самой выгодной для VTS при высокой загрузке — и это правда.
+      Но при нулевой загрузке она даёт ноль, а аренда всё равно списывается. Поскольку
+      <strong>реальная загрузка сегодня равна нулю</strong>, для VTS сейчас важнее не максимум
+      на правом краю, а <strong>не-ноль на левом</strong>. G1 и G4 — единственные, где A
+      участвует в содержании места, которое его станок занимает.</p>
+    <p style="margin-bottom:0">Аргумент для Руслана простой и не обидный: «станок занимает
+      30 м², это €240 прямой аренды в месяц. Если станок стоит и не работает — эти метры
+      всё равно оплачены. Базовая плата — это не доля в твоей прибыли, это возмещение моих
+      прямых затрат».</p>
+  </div>
+</section>
+
+<!-- ============ RISK REGISTER ============ -->
+<section id="reg">
+  <div class="eyebrow">Риски</div>
+  <h2>Реестр рисков</h2>
+  <p>Оценка ущерба — в евро за год или разово, чтобы риски можно было сравнивать между собой,
+    а не обсуждать словами «большой» и «маленький».</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Риск</th><th>Вероятн.</th><th class="num">Цена вопроса</th><th>Кто несёт сейчас</th><th>Чем закрывается</th></tr></thead>
+    <tbody>
+      <tr><td><strong>A не даёт обещанного объёма</strong></td><td><span class="pill unk">высокая</span></td><td class="num">до 60 500/год</td><td class="neg">B целиком</td><td>Минимальный объём или плата за резерв мощности</td></tr>
+      <tr><td>Аренда при нулевой загрузке</td><td><span class="pill unk">высокая</span></td><td class="num">24 960/год</td><td class="neg">B целиком</td><td>Меньшая площадь, право выхода, rent-free</td></tr>
+      <tr><td>Площадь под станком A не оплачена</td><td><span class="pill unk">высокая</span></td><td class="num">4 680/год</td><td class="neg">B целиком</td><td>Плата за место станка (модели G1/G4)</td></tr>
+      <tr><td>Электричество пресса A</td><td><span class="pill assum">средняя</span></td><td class="num">600–1 800/год</td><td>не определено</td><td>Субсчётчик, €40–80 разово</td></tr>
+      <tr><td>KM с аренды не возвращается</td><td><span class="pill assum">средняя</span></td><td class="num">до 5 988/год</td><td class="neg">B</td><td>Добровольная регистрация KM</td></tr>
+      <tr><td>Поломка пресса A останавливает цех</td><td><span class="pill assum">средняя</span></td><td class="num">по простою</td><td>не определено</td><td>Пункт о простое и сроках ремонта</td></tr>
+      <tr><td>Брак и переделки</td><td><span class="pill unk">высокая</span></td><td class="num">3–8 % оборота</td><td>не определено</td><td>Политика брака по виновной стороне</td></tr>
+      <tr><td>A даёт заказ ниже себестоимости</td><td><span class="pill assum">средняя</span></td><td class="num">вся маржа заказа</td><td class="neg">B и C</td><td>Правило минимальной цены</td></tr>
+      <tr><td>A забирает станок</td><td><span class="pill assum">средняя</span></td><td class="num">остановка гибки</td><td class="neg">B</td><td>Срок уведомления, компенсация</td></tr>
+      <tr><td>Клиент уходит с A при разрыве</td><td><span class="pill unk">высокая</span></td><td class="num">весь поток</td><td class="neg">B и C</td><td>Правила принадлежности клиента, non-circumvention</td></tr>
+      <tr><td>Выход участника без правил</td><td><span class="pill assum">средняя</span></td><td class="num">непредсказуемо</td><td>все</td><td>Порядок выхода и оценки долей</td></tr>
+      <tr><td>Отопление дороже расчёта</td><td><span class="pill unk">не оценено</span></td><td class="num">не подтверждено</td><td class="neg">B</td><td>Запросить счета за прошлую зиму</td></tr>
+      <tr><td>Мощности 25 A не хватает</td><td><span class="pill unk">не оценено</span></td><td class="num">стоимость подключения</td><td class="neg">B</td><td>Расчёт пиковой нагрузки до подписания</td></tr>
+      <tr><td>Требования охраны труда и страховки</td><td><span class="pill assum">средняя</span></td><td class="num">не подтверждено</td><td class="neg">B как работодатель</td><td>Проверить у специалиста в Эстонии</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">«Цена вопроса» по строке «A не даёт объёма» = годовые постоянные расходы конфигурации 260 м² с наёмным D (€5 043 × 12).</p>
+</section>
+
+<!-- ============ FIX ============ -->
+<section id="fix">
+  <div class="eyebrow">Решения</div>
+  <h2>Проблема → решение, с ценой каждого хода</h2>
+  <p>Это главная таблица документа. Каждая строка — конкретное действие и его эффект в евро.
+    Первые пять принимаются <strong>до подписания договора аренды</strong> и после подписания
+    станут недоступны.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Проблема</th><th>Что сделать</th><th class="num">Эффект</th><th>Когда</th></tr></thead>
+    <tbody>
+      <tr><td>260 м² × €8 при резерве €5 000</td><td>Взять 130–150 м² с правом расширения</td><td class="num pos">+1 040/мес</td><td><strong>до подписания</strong></td></tr>
+      <tr><td>Депозит 2–3 мес съедает резерв</td><td>Торговать до 1 месяца или банковскую гарантию</td><td class="num pos">+2 080 разово</td><td><strong>до подписания</strong></td></tr>
+      <tr><td>Платишь, пока обустраиваешь цех</td><td>1–2 месяца rent-free на монтаж</td><td class="num pos">+1 040…2 080</td><td><strong>до подписания</strong></td></tr>
+      <tr><td>Длинный договор = ловушка</td><td>Срок 6–12 мес либо выход с уведомлением 3 мес</td><td class="num">ограничивает убыток</td><td><strong>до подписания</strong></td></tr>
+      <tr><td>KM с аренды и CAPEX сгорает</td><td>Добровольная регистрация KM заранее</td><td class="num pos">до 5 988/год</td><td><strong>до подписания</strong></td></tr>
+      <tr><td>D — €1 683/мес фиксом на VTS</td><td>Оператор станка A — расход A. Либо по счёту / почасово</td><td class="num pos">+20 200/год</td><td>до найма</td></tr>
+      <tr><td>Станок A занимает площадь бесплатно</td><td>Плата за место: 30 м² × €13 = €390/мес</td><td class="num pos">+4 680/год</td><td>в договор A↔B</td></tr>
+      <tr><td>Спор об электричестве пресса</td><td>Субсчётчик на пресс</td><td class="num">€40–80 разово</td><td>при монтаже</td></tr>
+      <tr><td>Зависимость от единственного заказчика</td><td>Минимальный месячный объём или плата за резерв мощности</td><td class="num">снимает риск простоя</td><td>в договор A↔B</td></tr>
+      <tr><td>Заказ ниже себестоимости «ради клиента»</td><td>Правило минимальной цены: ниже расчёта — только письменно</td><td class="num">защищает маржу</td><td>в договор A↔B</td></tr>
+      <tr><td>Комиссия A с материалоёмких заказов</td><td>Процент от маржи вместо процента от выручки</td><td class="num pos">до 13 п.п. прибыли</td><td>в договор A↔B</td></tr>
+      <tr><td>Простой станка из-за поломки</td><td>Кто платит ремонт, кто несёт упущенную выручку, срок устранения</td><td class="num">устраняет спор</td><td>в договор A↔B</td></tr>
+      <tr><td>Брак и переделки</td><td>Политика брака по этапу и виновной стороне</td><td class="num">3–8 % оборота</td><td>в договор A↔B и B↔C</td></tr>
+      <tr><td>Уход клиентов при разрыве</td><td>Принадлежность клиента, non-circumvention, срок после выхода</td><td class="num">защищает поток</td><td>в договор A↔B</td></tr>
+      <tr><td>Тупик в спорном решении</td><td>Порядок принятия решений и разрешения разногласий</td><td class="num">устраняет паралич</td><td>во все договоры</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note good">
+    <div class="nt">Сумма всех ходов</div>
+    <p>Только четыре решения — меньшая площадь, D не в штате VTS, плата за место станка
+      и регистрация KM — дают <strong>около €2 900 в месяц</strong> разницы. Это превращает
+      точку безубыточности из €9 170 в €3 391, то есть из недостижимой в реальную.
+      Ни одно из них не требует денег — только переговоров.</p>
+  </div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section id="plan">
+  <div class="eyebrow">Запуск</div>
+  <h2>План 0–6 месяцев с числовыми триггерами</h2>
+  <p>Фазы переключаются не по календарю и не по настроению, а по проверяемому условию.
+    Пока условие не выполнено — следующая фаза не начинается.</p>
+
+  <div class="phase p0">
+    <div class="pn">Фаза 0 — сейчас</div>
+    <div class="pt">Проверка потока без аренды</div>
+    <p>Заказов от A — ноль. Любые постоянные расходы в этой точке — ставка на обещание.</p>
+    <ul>
+      <li>Получить от A первые <strong>реальные оплаченные</strong> заказы и выполнить их
+        на чужих мощностях, субподрядом или почасовой арендой оборудования.</li>
+      <li>По каждому заказу заполнить калькулятор себестоимости — это даст настоящую
+        долю материала вместо допущения 45 %.</li>
+      <li>Получить у арендодателя: счета за отопление за прошлую зиму, подтверждённую
+        мощность ввода, условия депозита, срока и rent-free.</li>
+      <li>Проверить статус KM у VTS. Если не KM-обязанный — подать на добровольную регистрацию.</li>
+      <li>Посчитать CAPEX: составить список того, что уже есть, и того, что придётся купить.</li>
+      <li>Зафиксировать письменно: предоплата, правило минимальной цены, принадлежность клиентов.</li>
+    </ul>
+    <div class="trigger">Переход к Фазе 1 только при: ≥ €3 500/мес фактической оплаченной выручки от A
+      три месяца подряд <strong>и</strong> подтверждённом CAPEX в пределах резерва.</div>
+  </div>
+
+  <div class="phase p1">
+    <div class="pn">Фаза 1</div>
+    <div class="pt">Малый цех, без наёмных</div>
+    <ul>
+      <li>130–150 м², депозит не более 1 месяца, срок 6–12 месяцев или право выхода.</li>
+      <li>D не в штате VTS: нанимает A, либо работа по счёту, либо почасово под заказ.</li>
+      <li>Плата от A за место станка — с первого месяца, включая месяцы простоя.</li>
+      <li>Субсчётчик на пресс при монтаже.</li>
+      <li>Точка безубыточности — €3 391/мес. Первая цель: удержаться выше неё три месяца.</li>
+    </ul>
+    <div class="trigger">Переход к Фазе 2 только при: ≥ €8 000/мес три месяца подряд
+      <strong>и</strong> положительном остатке на счёте <strong>и</strong> загрузке гибки ≥ 60 %.</div>
+  </div>
+
+  <div class="phase p2">
+    <div class="pn">Фаза 2</div>
+    <div class="pt">Расширение</div>
+    <ul>
+      <li>Расширение площади до 200–260 м² по опциону из договора Фазы 1.</li>
+      <li>Наём D в штат — когда загрузка гибки стабильно выше 60 %.</li>
+      <li>Возврат к вопросу второго пресса (ниже).</li>
+      <li>Пересмотр моделей распределения по фактическим данным, а не по допущениям.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SECOND PRESS ============ -->
+<section id="press2">
+  <div class="eyebrow">Инвестиция</div>
+  <h2>Второй пресс: когда он становится возможен</h2>
+  <p>Исходный документ ставит покупку второго пресса (до 2 м, ~200 т, собственник и инвестор —
+    VTS) примерно в первые 6 месяцев. При резерве €5 000 это <strong>нереалистично</strong>
+    из собственных средств.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Путь</th><th>Что требуется</th><th>Когда реально</th></tr></thead>
+    <tbody>
+      <tr><td>Покупка за свои</td><td>Полная стоимость + доставка + монтаж + оснастка, сверх операционного резерва</td><td class="neg">Не в первые 6 месяцев при текущем резерве</td></tr>
+      <tr><td>Лизинг</td><td>Первый взнос, кредитная история VTS, устойчивый оборот. Банк смотрит на отчётность, а доход сейчас нерегулярный</td><td>После 6–12 мес подтверждённой выручки</td></tr>
+      <tr><td>Б/у пресс меньшего тоннажа</td><td>Меньшая сумма, но выше риск ремонта и нет гарантии</td><td>Раньше, но требует проверки состояния</td></tr>
+      <tr><td>Не покупать, догружать первый</td><td>Загрузить пресс A до 80–90 % и брать за это плату по модели G1/G4</td><td class="pos">Сразу — и денег не требует</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note">
+    <div class="nt">Триггер покупки</div>
+    <p>Второй пресс имеет смысл, когда <strong>первый загружен выше 80 %</strong> и отказы
+      клиентам происходят из-за нехватки мощности, а не из-за нехватки заказов. До этого
+      момента второй станок добавляет амортизацию, место и платёж — то есть ухудшает
+      точку безубыточности, а не улучшает её.</p>
+    <p style="margin-bottom:0"><strong>Я не могу подтвердить</strong> стоимость конкретной модели
+      пресса, условия лизинга в эстонских банках и требуемый первый взнос — эти цифры нужно
+      получить у поставщиков и в банке, и только после этого считать окупаемость.</p>
+  </div>
+</section>
+
+<!-- ============ OPEN QUESTIONS ============ -->
+<section id="open">
+  <div class="eyebrow">Не посчитано</div>
+  <h2>Что нужно выяснить — по приоритету</h2>
+  <p>Пока на эти вопросы нет ответов, соответствующие части модели остаются допущениями.
+    Первые пять меняют выводы, остальные — уточняют цифры.</p>
+
+  <details open><summary><span class="q">01</span>CAPEX: что уже есть и что придётся купить</summary>
+    <p>Вытяжка, компрессор, сварочные посты, верстаки, стеллажи, оснастка для пресса, СИЗ,
+      освещение, подводка питания, огнетушители. При резерве €5 000 эта строка может оказаться
+      решающей. Нужен список по факту.</p></details>
+  <details><summary><span class="q">02</span>Отопление: счета за прошлую зиму</summary>
+    <p>Для цеха 260 м² зимний счёт может превысить аренду. Запросить у арендодателя фактические
+      счета, а не оценку. Это самое дешёвое действие с самым большим эффектом на точность модели.</p></details>
+  <details><summary><span class="q">03</span>Электрическая мощность</summary>
+    <p>Паспортные мощности пресса, сварочного оборудования, компрессора и вентиляции.
+      25 A принимать как достаточную мощность нельзя. Нужен расчёт подключённой и пиковой
+      нагрузки, иначе подключение станет непредвиденным CAPEX.</p></details>
+  <details><summary><span class="q">04</span>Условия аренды: депозит, срок, rent-free, KM</summary>
+    <p>Депозит 1 или 3 месяца — это разница в €4 160. Облагает ли арендодатель аренду
+      налогом с оборота. Есть ли право выхода и право субаренды.</p></details>
+  <details><summary><span class="q">05</span>Статус KM у VTS</summary>
+    <p>Если VTS не KM-обязанный — 24 % с аренды, оборудования и материала не возвращаются.
+      Проверяется за минуту, стоит до €5 988 в год.</p></details>
+  <details><summary><span class="q">06</span>Что входит в €20 000 за первый пресс</summary>
+    <p>Доставка, установка, пусконаладка, инструментальная оснастка — входят или сверху.
+      На чьей стороне расходы по монтажу в цеху B.</p></details>
+  <details><summary><span class="q">07</span>Реальное рабочее время твоё и Александра</summary>
+    <p>Сколько часов в месяц вы фактически готовы стоять у станка, и есть ли у вас другой доход
+      на время раскрутки. Это определяет, сколько можно не платить себе.</p></details>
+  <details><summary><span class="q">08</span>Номенклатура: нужен ли кран</summary>
+    <p>Вес и габарит типовой заготовки. От этого зависит, обязателен ли кран или тельфер,
+      и какая нужна высота потолка.</p></details>
+  <details><summary><span class="q">09</span>Страхование и охрана труда</summary>
+    <p>Имущество, ответственность перед третьими лицами, станок A — кто страхует и за чей счёт.
+      Требования охраны труда как работодателя. <strong>Проверить у специалиста в Эстонии</strong>.</p></details>
+  <details><summary><span class="q">10</span>Есть ли письменные договорённости с A</summary>
+    <p>Если всё на словах — это не упрёк, а параметр риска. Всё, что перечислено в разделе
+      о договоре, должно появиться на бумаге до того, как появятся расходы.</p></details>
+</section>
+
+<!-- ============ DEAL ============ -->
+<section id="deal">
+  <div class="eyebrow">Договорённости</div>
+  <h2>Что нельзя оставлять на словах</h2>
+  <p>Ниже — структура будущих соглашений. Полный перечень с формулировками вынесен
+    в отдельный документ-термшит для передачи юристу.</p>
+
+  <h3>Отношения A ↔ B</h3>
+  <ul>
+    <li>Порядок расчёта цены и <strong>правило минимальной цены</strong>: заказ ниже расчётной
+      себестоимости принимается только письменно, с указанием, кто покрывает разницу.</li>
+    <li>Комиссия A: база начисления (выручка / фикс / маржа), момент возникновения, порядок оплаты.</li>
+    <li>Размещение пресса A в помещении B: плата за место станка, включая месяцы простоя.</li>
+    <li>Электроэнергия пресса: субсчётчик, порядок расчёта и оплаты.</li>
+    <li>Поломка и простой: кто оплачивает ремонт, срок устранения, кто несёт упущенную выручку.</li>
+    <li>Брак и переделки: определение, порядок фиксации, распределение затрат по виновной стороне.</li>
+    <li>Минимальный месячный объём или плата за зарезервированную мощность.</li>
+    <li>Порядок и сроки оплаты, предоплата материала.</li>
+    <li>Принадлежность клиентов, non-circumvention, срок действия после прекращения.</li>
+    <li>Вывоз оборудования A: срок уведомления, порядок, компенсация.</li>
+    <li>Конфиденциальность, порядок разрешения споров, прекращение сотрудничества.</li>
+  </ul>
+
+  <h3>Отношения B ↔ C</h3>
+  <ul>
+    <li>Форма участия Александра: работник, подрядчик по счёту или партнёр — от этого зависят
+      налоги и ответственность.</li>
+    <li>Оплата фактических часов, ставка, порядок учёта времени.</li>
+    <li>Производственный бонус: за что именно, как измеряется, когда выплачивается.</li>
+    <li>Участие в распределяемой прибыли — отдельно от оплаты труда.</li>
+    <li>Ответственность за брак в сварочных работах.</li>
+    <li>Порядок выхода и судьба наработанных клиентов.</li>
+  </ul>
+
+  <h3>Общее для всех</h3>
+  <ul>
+    <li>Финансовый waterfall — порядок покрытия расходов до любого распределения.</li>
+    <li>Разделение категорий: оплата труда ≠ компенсация расходов ≠ доля в прибыли.</li>
+    <li>Обязательный резерв в производстве и порядок его пополнения.</li>
+    <li>Порядок принятия решений и разрешения тупиков.</li>
+    <li>Порядок выхода любого участника и оценка его доли.</li>
+  </ul>
+
+  <div class="note crit">
+    <div class="nt">Обязательная оговорка</div>
+    <p>Этот документ — финансовый и операционный анализ, а не юридическая или налоговая
+      консультация. Ставки 2026 года проверены по профессиональным и официальным источникам
+      на дату подготовки, но налоговое и трудовое право меняется.
+      <strong>Ни одно соглашение не должно подписываться без проверки квалифицированным
+      юристом и налоговым консультантом в Эстонии.</strong></p>
+  </div>
+
+  <div class="foot">
+    <p><strong>Источники проверенных ставок:</strong> KPMG Baltics OÜ, Tax Card 2026 (в силе
+      с 01.01.2026); Эстонский налогово-таможенный департамент (EMTA) — социальный налог,
+      регистрация KM-обязанным; EY — налоговые изменения в Эстонии 2025–2026; ERR — соглашение
+      о минимальной зарплате €946.</p>
+    <p>Все расчёты выполнены при доле материала и лазерной резки 45 % от выручки без KM,
+      резерве €5 000, ставке аренды €8/м² без KM и зарплате D €1 100 нетто с наймом в VTS —
+      по подтверждённым тобой вводным. Строки, помеченные как допущения и как неподтверждённые,
+      требуют проверки до принятия решений.</p>
+    <p class="src">Подготовлено 20.09.2026 · модель пересчитывается при изменении любого допущения</p>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var nf = new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0});
+  var nf1 = new Intl.NumberFormat('ru-RU',{minimumFractionDigits:1,maximumFractionDigits:1});
+  function eur(v){ return (v<0?'−':'') + '€' + nf.format(Math.abs(Math.round(v))); }
+
+  /* ---------- theme-independent payroll (Estonia 2026) ---------- */
+  var EXEMPT=700, ITAX=0.22, UIE=0.016, P2=0.02, LOAD=1.338;
+  function grossFromNet(net){ return (net - ITAX*EXEMPT) / ((1-UIE-P2)*(1-ITAX)); }
+  function employerCost(gross){ return gross*LOAD; }
+
+  var IDS=['area','rate','rev','mat','dsel','res','dep','place'];
+  var KEY='vts-calc-v1';
+
+  function readState(){
+    return { area:+$('area').value, rate:+$('rate').value, rev:+$('rev').value,
+             mat:+$('mat').value, dsel:$('dsel').value, res:+$('res').value,
+             dep:+$('dep').value, place:+$('place').value };
+  }
+
+  function fixedCosts(area, rate, dsel, place){
+    var s = area/260;
+    var rent = area*rate;
+    var other = Math.round(400*s) + Math.round(250*s) + Math.round(70*s)
+              + 40 + 150 + Math.round(90*s) + Math.round(180)
+              + Math.round(100*s);
+    var d = 0;
+    if(dsel==='net1100') d = employerCost(grossFromNet(1100));
+    else if(dsel==='gross1100') d = employerCost(1100);
+    return rent + other + d - place;
+  }
+
+  function render(){
+    var st = readState();
+    $('areaV').textContent = st.area;
+    $('rateV').textContent = nf1.format(st.rate);
+    $('revV').textContent = nf.format(st.rev);
+    $('matV').textContent = st.mat;
+    $('resV').textContent = nf.format(st.res);
+    $('depV').textContent = st.dep;
+    $('placeV').textContent = nf.format(st.place);
+
+    var cmRatio = (100-st.mat)/100;
+    var fixed = fixedCosts(st.area, st.rate, st.dsel, st.place);
+    var contrib = st.rev*cmRatio;
+    var profit = contrib - fixed;
+    var be = fixed>0 ? fixed/cmRatio : 0;
+    var deposit = st.dep * st.area * st.rate;
+    var afterDep = st.res - deposit;
+    var runway = fixed>0 ? afterDep/fixed : 0;
+    var gap = Math.max(0, be - st.rev);
+
+    var pEl=$('oProfit');
+    pEl.textContent = (profit>=0?'+':'') + eur(profit);
+    pEl.style.color = profit>=0 ? 'var(--good-ink)' : 'var(--crit-ink)';
+    $('oProfitK').textContent = profit>=0
+      ? 'прибыль в месяц — выше точки безубыточности'
+      : 'убыток в месяц — ниже точки безубыточности';
+    var pct = be>0 ? Math.max(0, Math.min(100, st.rev/be*100)) : 0;
+    $('oBar').style.width = pct.toFixed(1)+'%';
+    $('oBar').style.background = profit>=0 ? 'var(--good)' : 'var(--crit)';
+
+    $('oFixed').textContent = eur(fixed);
+    $('oBE').textContent = eur(be);
+    $('oContrib').textContent = eur(contrib);
+
+    var ad=$('oAfterDep');
+    ad.textContent = eur(afterDep);
+    ad.style.color = afterDep<0 ? 'var(--crit-ink)' : 'var(--ink)';
+
+    var rw=$('oRunway');
+    if(afterDep<0){ rw.textContent='0'; rw.style.color='var(--crit-ink)'; }
+    else if(runway<1){ rw.textContent = Math.round(runway*30)+' дн'; rw.style.color='var(--crit-ink)'; }
+    else { rw.textContent = nf1.format(runway)+' мес';
+           rw.style.color = runway<3 ? 'var(--warn-ink)' : 'var(--good-ink)'; }
+
+    var g=$('oGap');
+    g.textContent = gap>0 ? eur(gap) : 'достигнута';
+    g.style.color = gap>0 ? 'var(--crit-ink)' : 'var(--good-ink)';
+
+    try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){}
+  }
+
+  try{
+    var saved = localStorage.getItem(KEY);
+    if(saved){
+      var o = JSON.parse(saved);
+      IDS.forEach(function(id){ if(o[id]!==undefined && $(id)) $(id).value = o[id]; });
+    }
+  }catch(e){}
+
+  IDS.forEach(function(id){
+    var el=$(id); if(!el) return;
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
+  });
+  render();
+
+  /* ---------- scrollspy ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); })
+                  .filter(Boolean);
+  if('IntersectionObserver' in window && secs.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        links.forEach(function(a){
+          var on = a.getAttribute('href').slice(1) === en.target.id;
+          a.classList.toggle('on', on);
+          if(on && a.scrollIntoView) a.scrollIntoView({block:'nearest', inline:'nearest'});
+        });
+      });
+    }, {rootMargin:'-60px 0px -70% 0px', threshold:0});
+    secs.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+
+</body>
+</html>
